@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
@@ -198,6 +199,41 @@ namespace Financials.DataSources.DataSources.Yahoo
             return dividends.OrderBy(o => o.Date).ToArray();
         }
 
+        public AutoCResponse Search(string symbolOrCompany)
+        {
+            return Search(symbolOrCompany, CultureInfo.CurrentUICulture);
+        }
 
+        /// <summary>
+        /// Searches for a company symbol.
+        /// </summary>
+        /// <param name="symbolOrCompany"></param>
+        /// <param name="culture"></param>
+        public AutoCResponse Search(string symbolOrCompany, CultureInfo culture)
+        {
+            if (String.IsNullOrWhiteSpace(symbolOrCompany))
+                return null;
+
+            if (culture == null)
+                culture = CultureInfo.CurrentUICulture;
+
+            string uriString = String.Format("http://d.yimg.com/autoc.finance.yahoo.com/autoc?query={0}&lang={1}", symbolOrCompany, culture.Name);
+            Uri uri = new Uri(uriString);
+
+            WebRequest request = GetWebRequest(uri);
+
+            WebResponse response = GetWebResponse(request);
+
+            // Parse JSON response.
+            Stream responseStream = response.GetResponseStream();
+
+            StreamReader reader = new StreamReader(responseStream);
+
+            String json = reader.ReadToEnd();
+
+            AutoCResponse autoCResponse = JsonConvert.DeserializeObject<AutoCResponse>(json);
+
+            return autoCResponse;
+        }
     }
 }
