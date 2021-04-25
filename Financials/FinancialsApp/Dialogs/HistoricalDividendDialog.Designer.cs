@@ -41,20 +41,20 @@
             this.panelContent = new System.Windows.Forms.Panel();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPageGraph = new System.Windows.Forms.TabPage();
+            this.formsPlot1 = new ScottPlot.FormsPlot();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
+            this.toolStripComboGraphInterval = new System.Windows.Forms.ToolStripComboBox();
             this.tabPageDividendData = new System.Windows.Forms.TabPage();
             this.listViewDividendData = new System.Windows.Forms.ListView();
             this.columnHeaderDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeaderDividend = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.formsPlot1 = new ScottPlot.FormsPlot();
-            this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
-            this.toolStripComboGraphInterval = new System.Windows.Forms.ToolStripComboBox();
             this.panelTop.SuspendLayout();
             this.panelContent.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPageGraph.SuspendLayout();
-            this.tabPageDividendData.SuspendLayout();
             this.toolStrip1.SuspendLayout();
+            this.tabPageDividendData.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelTop
@@ -114,7 +114,7 @@
             this.buttonSearch.Name = "buttonSearch";
             this.buttonSearch.Size = new System.Drawing.Size(75, 23);
             this.buttonSearch.TabIndex = 2;
-            this.buttonSearch.Text = "button1";
+            this.buttonSearch.Text = "Apply";
             this.buttonSearch.UseVisualStyleBackColor = true;
             this.buttonSearch.Click += new System.EventHandler(this.buttonSearch_Click);
             // 
@@ -174,6 +174,41 @@
             this.tabPageGraph.Text = "Graph";
             this.tabPageGraph.UseVisualStyleBackColor = true;
             // 
+            // formsPlot1
+            // 
+            this.formsPlot1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.formsPlot1.Location = new System.Drawing.Point(3, 28);
+            this.formsPlot1.Name = "formsPlot1";
+            this.formsPlot1.Size = new System.Drawing.Size(522, 117);
+            this.formsPlot1.TabIndex = 1;
+            // 
+            // toolStrip1
+            // 
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripLabel1,
+            this.toolStripComboGraphInterval});
+            this.toolStrip1.Location = new System.Drawing.Point(3, 3);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(522, 25);
+            this.toolStrip1.TabIndex = 0;
+            this.toolStrip1.Text = "toolStrip1";
+            // 
+            // toolStripLabel1
+            // 
+            this.toolStripLabel1.Name = "toolStripLabel1";
+            this.toolStripLabel1.Size = new System.Drawing.Size(39, 22);
+            this.toolStripLabel1.Text = "Show:";
+            // 
+            // toolStripComboGraphInterval
+            // 
+            this.toolStripComboGraphInterval.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.toolStripComboGraphInterval.Items.AddRange(new object[] {
+            "All",
+            "Yearly"});
+            this.toolStripComboGraphInterval.Name = "toolStripComboGraphInterval";
+            this.toolStripComboGraphInterval.Size = new System.Drawing.Size(121, 25);
+            this.toolStripComboGraphInterval.SelectedIndexChanged += new System.EventHandler(this.toolStripComboGraphInterval_SelectedIndexChanged);
+            // 
             // tabPageDividendData
             // 
             this.tabPageDividendData.Controls.Add(this.listViewDividendData);
@@ -211,41 +246,6 @@
             this.columnHeaderDividend.Text = "Dividend";
             this.columnHeaderDividend.Width = 162;
             // 
-            // toolStrip1
-            // 
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripLabel1,
-            this.toolStripComboGraphInterval});
-            this.toolStrip1.Location = new System.Drawing.Point(3, 3);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(522, 25);
-            this.toolStrip1.TabIndex = 0;
-            this.toolStrip1.Text = "toolStrip1";
-            // 
-            // formsPlot1
-            // 
-            this.formsPlot1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.formsPlot1.Location = new System.Drawing.Point(3, 28);
-            this.formsPlot1.Name = "formsPlot1";
-            this.formsPlot1.Size = new System.Drawing.Size(522, 117);
-            this.formsPlot1.TabIndex = 1;
-            // 
-            // toolStripLabel1
-            // 
-            this.toolStripLabel1.Name = "toolStripLabel1";
-            this.toolStripLabel1.Size = new System.Drawing.Size(39, 22);
-            this.toolStripLabel1.Text = "Show:";
-            // 
-            // toolStripComboGraphInterval
-            // 
-            this.toolStripComboGraphInterval.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.toolStripComboGraphInterval.Items.AddRange(new object[] {
-            "All",
-            "Yearly"});
-            this.toolStripComboGraphInterval.Name = "toolStripComboGraphInterval";
-            this.toolStripComboGraphInterval.Size = new System.Drawing.Size(121, 25);
-            this.toolStripComboGraphInterval.SelectedIndexChanged += new System.EventHandler(this.toolStripComboGraphInterval_SelectedIndexChanged);
-            // 
             // HistoricalDividendDialog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -262,9 +262,9 @@
             this.tabControl1.ResumeLayout(false);
             this.tabPageGraph.ResumeLayout(false);
             this.tabPageGraph.PerformLayout();
-            this.tabPageDividendData.ResumeLayout(false);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
+            this.tabPageDividendData.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

@@ -1,4 +1,5 @@
-﻿using Financials.DataSources.DataSources.Yahoo;
+﻿using Financials.Cache.Yahoo;
+using Financials.DataSources.DataSources.Yahoo;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -133,6 +134,12 @@ namespace FinancialsApp.Dialogs
                 else
                 {
                     dividends = client.GetHistoricalDividends(this.textBoxSymbol.Text.Trim(), this.dateTimePickerStartDate.Value.Date, this.dateTimePickerEndDate.Value.Date, YahooFrequency.Daily);
+
+                    if ((dividends != null) && (dividends.Length > 0))
+                    {
+                        YahooCache cache = new YahooCache();
+                        cache.SaveHistoricalDividends(this.textBoxSymbol.Text, dividends);
+                    }
 
                     this._cachedSymbol = this.textBoxSymbol.Text.Trim();
                     this._cachedStartDate = this.dateTimePickerStartDate.Value.Date;
