@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             this.panelTop = new System.Windows.Forms.Panel();
-            this.panelButtons = new System.Windows.Forms.Panel();
-            this.labelSymbolOrCompany = new System.Windows.Forms.Label();
-            this.textBoxSearchQuery = new System.Windows.Forms.TextBox();
             this.buttonSearch = new System.Windows.Forms.Button();
-            this.listViewSearchResults = new System.Windows.Forms.ListView();
-            this.buttonOk = new System.Windows.Forms.Button();
+            this.textBoxSearchQuery = new System.Windows.Forms.TextBox();
+            this.labelSymbolOrCompany = new System.Windows.Forms.Label();
+            this.panelButtons = new System.Windows.Forms.Panel();
             this.buttonCancel = new System.Windows.Forms.Button();
+            this.buttonOk = new System.Windows.Forms.Button();
+            this.listViewSearchResults = new System.Windows.Forms.ListView();
             this.columnHeaderSymbol = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeaderName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeaderExchange = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -55,34 +55,6 @@
             this.panelTop.Size = new System.Drawing.Size(505, 44);
             this.panelTop.TabIndex = 0;
             // 
-            // panelButtons
-            // 
-            this.panelButtons.Controls.Add(this.buttonCancel);
-            this.panelButtons.Controls.Add(this.buttonOk);
-            this.panelButtons.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelButtons.Location = new System.Drawing.Point(0, 243);
-            this.panelButtons.Name = "panelButtons";
-            this.panelButtons.Size = new System.Drawing.Size(505, 47);
-            this.panelButtons.TabIndex = 1;
-            // 
-            // labelSymbolOrCompany
-            // 
-            this.labelSymbolOrCompany.AutoSize = true;
-            this.labelSymbolOrCompany.Location = new System.Drawing.Point(12, 15);
-            this.labelSymbolOrCompany.Name = "labelSymbolOrCompany";
-            this.labelSymbolOrCompany.Size = new System.Drawing.Size(103, 13);
-            this.labelSymbolOrCompany.TabIndex = 0;
-            this.labelSymbolOrCompany.Text = "Symbol or Company:";
-            // 
-            // textBoxSearchQuery
-            // 
-            this.textBoxSearchQuery.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxSearchQuery.Location = new System.Drawing.Point(121, 12);
-            this.textBoxSearchQuery.Name = "textBoxSearchQuery";
-            this.textBoxSearchQuery.Size = new System.Drawing.Size(291, 20);
-            this.textBoxSearchQuery.TabIndex = 1;
-            // 
             // buttonSearch
             // 
             this.buttonSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -93,6 +65,57 @@
             this.buttonSearch.Text = "Search";
             this.buttonSearch.UseVisualStyleBackColor = true;
             this.buttonSearch.Click += new System.EventHandler(this.buttonSearch_Click);
+            // 
+            // textBoxSearchQuery
+            // 
+            this.textBoxSearchQuery.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxSearchQuery.Location = new System.Drawing.Point(121, 12);
+            this.textBoxSearchQuery.Name = "textBoxSearchQuery";
+            this.textBoxSearchQuery.Size = new System.Drawing.Size(291, 20);
+            this.textBoxSearchQuery.TabIndex = 1;
+            this.textBoxSearchQuery.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxSearchQuery_KeyDown);
+            // 
+            // labelSymbolOrCompany
+            // 
+            this.labelSymbolOrCompany.AutoSize = true;
+            this.labelSymbolOrCompany.Location = new System.Drawing.Point(12, 15);
+            this.labelSymbolOrCompany.Name = "labelSymbolOrCompany";
+            this.labelSymbolOrCompany.Size = new System.Drawing.Size(103, 13);
+            this.labelSymbolOrCompany.TabIndex = 0;
+            this.labelSymbolOrCompany.Text = "Symbol or Company:";
+            // 
+            // panelButtons
+            // 
+            this.panelButtons.Controls.Add(this.buttonCancel);
+            this.panelButtons.Controls.Add(this.buttonOk);
+            this.panelButtons.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panelButtons.Location = new System.Drawing.Point(0, 243);
+            this.panelButtons.Name = "panelButtons";
+            this.panelButtons.Size = new System.Drawing.Size(505, 47);
+            this.panelButtons.TabIndex = 1;
+            // 
+            // buttonCancel
+            // 
+            this.buttonCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.buttonCancel.Location = new System.Drawing.Point(418, 12);
+            this.buttonCancel.Name = "buttonCancel";
+            this.buttonCancel.Size = new System.Drawing.Size(75, 23);
+            this.buttonCancel.TabIndex = 1;
+            this.buttonCancel.Text = "Cancel";
+            this.buttonCancel.UseVisualStyleBackColor = true;
+            // 
+            // buttonOk
+            // 
+            this.buttonOk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonOk.Location = new System.Drawing.Point(337, 12);
+            this.buttonOk.Name = "buttonOk";
+            this.buttonOk.Size = new System.Drawing.Size(75, 23);
+            this.buttonOk.TabIndex = 0;
+            this.buttonOk.Text = "OK";
+            this.buttonOk.UseVisualStyleBackColor = true;
+            this.buttonOk.Click += new System.EventHandler(this.buttonOk_Click);
             // 
             // listViewSearchResults
             // 
@@ -111,28 +134,6 @@
             this.listViewSearchResults.TabIndex = 2;
             this.listViewSearchResults.UseCompatibleStateImageBehavior = false;
             this.listViewSearchResults.View = System.Windows.Forms.View.Details;
-            // 
-            // buttonOk
-            // 
-            this.buttonOk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonOk.Location = new System.Drawing.Point(337, 12);
-            this.buttonOk.Name = "buttonOk";
-            this.buttonOk.Size = new System.Drawing.Size(75, 23);
-            this.buttonOk.TabIndex = 0;
-            this.buttonOk.Text = "OK";
-            this.buttonOk.UseVisualStyleBackColor = true;
-            this.buttonOk.Click += new System.EventHandler(this.buttonOk_Click);
-            // 
-            // buttonCancel
-            // 
-            this.buttonCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.buttonCancel.Location = new System.Drawing.Point(418, 12);
-            this.buttonCancel.Name = "buttonCancel";
-            this.buttonCancel.Size = new System.Drawing.Size(75, 23);
-            this.buttonCancel.TabIndex = 1;
-            this.buttonCancel.Text = "Cancel";
-            this.buttonCancel.UseVisualStyleBackColor = true;
             // 
             // columnHeaderSymbol
             // 

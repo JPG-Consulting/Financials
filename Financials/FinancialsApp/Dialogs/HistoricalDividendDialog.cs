@@ -186,6 +186,20 @@ namespace FinancialsApp.Dialogs
             if ((dialog.ShowDialog(this) == DialogResult.OK) && (dialog.SearchResult != null))
             {
                 this.textBoxSymbol.Text = dialog.SearchResult.Symbol;
+
+                // Simulamos la busqueda.
+                buttonSearch_Click(sender, e);
+            }
+        }
+
+        private void textBoxSymbol_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                if (!String.IsNullOrEmpty(this.textBoxSymbol.Text))
+                    buttonSearch_Click(sender, e);
+                else
+                    buttonSearchSymbol_Click(sender, e);
             }
         }
     }

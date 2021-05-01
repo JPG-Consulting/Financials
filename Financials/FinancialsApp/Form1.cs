@@ -24,12 +24,6 @@ namespace FinancialsApp
 
             dialog.ShowDialog(this);
         }
-
-        private void symbolSearchToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            SymbolSearchDialog dialog = new SymbolSearchDialog();
-
-            dialog.ShowDialog();
-        }
+        
     }
 }

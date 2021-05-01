@@ -32,16 +32,13 @@
             this.toolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.historicalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dividendsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.testsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.symbolSearchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolsToolStripMenuItem,
-            this.testsToolStripMenuItem});
+            this.toolsToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(800, 24);
@@ -61,7 +58,7 @@
             this.historicalToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.dividendsToolStripMenuItem});
             this.historicalToolStripMenuItem.Name = "historicalToolStripMenuItem";
-            this.historicalToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.historicalToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.historicalToolStripMenuItem.Text = "Historical";
             // 
             // dividendsToolStripMenuItem
@@ -70,21 +67,6 @@
             this.dividendsToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
             this.dividendsToolStripMenuItem.Text = "Dividends...";
             this.dividendsToolStripMenuItem.Click += new System.EventHandler(this.dividendsToolStripMenuItem_Click);
-            // 
-            // testsToolStripMenuItem
-            // 
-            this.testsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.symbolSearchToolStripMenuItem});
-            this.testsToolStripMenuItem.Name = "testsToolStripMenuItem";
-            this.testsToolStripMenuItem.Size = new System.Drawing.Size(118, 20);
-            this.testsToolStripMenuItem.Text = "Development Tests";
-            // 
-            // symbolSearchToolStripMenuItem
-            // 
-            this.symbolSearchToolStripMenuItem.Name = "symbolSearchToolStripMenuItem";
-            this.symbolSearchToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.symbolSearchToolStripMenuItem.Text = "Symbol search..";
-            this.symbolSearchToolStripMenuItem.Click += new System.EventHandler(this.symbolSearchToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -108,8 +90,6 @@
         private System.Windows.Forms.ToolStripMenuItem toolsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem historicalToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem dividendsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem testsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem symbolSearchToolStripMenuItem;
     }
 }
 

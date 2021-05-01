@@ -119,5 +119,11 @@ namespace FinancialsApp.Dialogs
                 this.listViewSearchResults.EndUpdate();
             }
         }
+
+        private void textBoxSearchQuery_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                Search(this.textBoxSearchQuery.Text.Trim());
+        }
     }
 }

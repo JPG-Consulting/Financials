@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.panelTop = new System.Windows.Forms.Panel();
+            this.buttonSearchSymbol = new System.Windows.Forms.Button();
             this.dateTimePickerEndDate = new System.Windows.Forms.DateTimePicker();
             this.labelEndDate = new System.Windows.Forms.Label();
             this.dateTimePickerStartDate = new System.Windows.Forms.DateTimePicker();
@@ -49,7 +50,6 @@
             this.listViewDividendData = new System.Windows.Forms.ListView();
             this.columnHeaderDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeaderDividend = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.buttonSearchSymbol = new System.Windows.Forms.Button();
             this.panelTop.SuspendLayout();
             this.panelContent.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -73,6 +73,16 @@
             this.panelTop.Name = "panelTop";
             this.panelTop.Size = new System.Drawing.Size(585, 47);
             this.panelTop.TabIndex = 0;
+            // 
+            // buttonSearchSymbol
+            // 
+            this.buttonSearchSymbol.Location = new System.Drawing.Point(110, 12);
+            this.buttonSearchSymbol.Name = "buttonSearchSymbol";
+            this.buttonSearchSymbol.Size = new System.Drawing.Size(37, 23);
+            this.buttonSearchSymbol.TabIndex = 7;
+            this.buttonSearchSymbol.Text = "...";
+            this.buttonSearchSymbol.UseVisualStyleBackColor = true;
+            this.buttonSearchSymbol.Click += new System.EventHandler(this.buttonSearchSymbol_Click);
             // 
             // dateTimePickerEndDate
             // 
@@ -126,6 +136,7 @@
             this.textBoxSymbol.Name = "textBoxSymbol";
             this.textBoxSymbol.Size = new System.Drawing.Size(46, 20);
             this.textBoxSymbol.TabIndex = 1;
+            this.textBoxSymbol.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxSymbol_KeyDown);
             // 
             // labelSymbol
             // 
@@ -217,7 +228,7 @@
             this.tabPageDividendData.Location = new System.Drawing.Point(4, 22);
             this.tabPageDividendData.Name = "tabPageDividendData";
             this.tabPageDividendData.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageDividendData.Size = new System.Drawing.Size(528, 148);
+            this.tabPageDividendData.Size = new System.Drawing.Size(577, 148);
             this.tabPageDividendData.TabIndex = 1;
             this.tabPageDividendData.Text = "Data";
             this.tabPageDividendData.UseVisualStyleBackColor = true;
@@ -233,7 +244,7 @@
             this.listViewDividendData.Location = new System.Drawing.Point(3, 3);
             this.listViewDividendData.MultiSelect = false;
             this.listViewDividendData.Name = "listViewDividendData";
-            this.listViewDividendData.Size = new System.Drawing.Size(522, 142);
+            this.listViewDividendData.Size = new System.Drawing.Size(571, 142);
             this.listViewDividendData.TabIndex = 1;
             this.listViewDividendData.UseCompatibleStateImageBehavior = false;
             this.listViewDividendData.View = System.Windows.Forms.View.Details;
@@ -247,16 +258,6 @@
             // 
             this.columnHeaderDividend.Text = "Dividend";
             this.columnHeaderDividend.Width = 162;
-            // 
-            // buttonSearchSymbol
-            // 
-            this.buttonSearchSymbol.Location = new System.Drawing.Point(110, 12);
-            this.buttonSearchSymbol.Name = "buttonSearchSymbol";
-            this.buttonSearchSymbol.Size = new System.Drawing.Size(37, 23);
-            this.buttonSearchSymbol.TabIndex = 7;
-            this.buttonSearchSymbol.Text = "...";
-            this.buttonSearchSymbol.UseVisualStyleBackColor = true;
-            this.buttonSearchSymbol.Click += new System.EventHandler(this.buttonSearchSymbol_Click);
             // 
             // HistoricalDividendDialog
             // 
