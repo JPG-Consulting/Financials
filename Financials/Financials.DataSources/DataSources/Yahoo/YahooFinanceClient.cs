@@ -199,6 +199,66 @@ namespace Financials.DataSources.DataSources.Yahoo
             return dividends.OrderBy(o => o.Date).ToArray();
         }
 
+        public HistoricalPrices[] GetHistoricalPrices(string symbol, DateTime from, DateTime to, YahooFrequency frequency)
+        {
+            Uri requestUri = GetDownloadUri(symbol, from, to, frequency, YahooDownloadableEvents.HistoricalPrices, true);
+            WebRequest request = GetWebRequest(requestUri);
+
+            WebResponse response = GetWebResponse(request);
+
+            // Parse CSV file
+            Stream responseStream = response.GetResponseStream();
+
+            List<HistoricalPrices> prices = new List<HistoricalPrices>();
+
+            using (StreamReader reader = new StreamReader(responseStream))
+            {
+                // Empty file: no dividends.
+                if (reader.EndOfStream)
+                    return new HistoricalPrices[0];
+
+                // Process the header line
+                String headerLine = reader.ReadLine();
+                String[] headerFields = headerLine.Split(new char[] { ',' });
+
+                if (!headerLine.Equals("Date,Open,High,Low,Close,Adj Close,Volume"))
+                    throw new InvalidOperationException("Received erroneous header in csv file.");
+
+                // Culture for CSV file.
+                CultureInfo csvCulture = new CultureInfo("en-US");
+
+                while (!reader.EndOfStream)
+                {
+                    string dataLine = reader.ReadLine();
+
+                    if (String.IsNullOrWhiteSpace(dataLine))
+                        continue;
+
+                    String[] dataFields = dataLine.Split(new char[] { ',' });
+
+                    // We can set the DTO values.
+                    HistoricalPrices price = new HistoricalPrices()
+                    {
+                        Date = DateTime.ParseExact(dataFields[0], "yyyy-MM-dd", csvCulture),
+                        Open = Convert.ToDecimal(dataFields[1], csvCulture),
+                        High = Convert.ToDecimal(dataFields[2], csvCulture),
+                        Low = Convert.ToDecimal(dataFields[3], csvCulture),
+                        Close = Convert.ToDecimal(dataFields[4], csvCulture),
+                        AdjustedClose = Convert.ToDecimal(dataFields[5], csvCulture),
+                        Volume = Convert.ToUInt64(dataFields[6], csvCulture)
+                    };
+
+                    prices.Add(price);
+                }
+            }
+
+            if (prices.Count < 1)
+                return new HistoricalPrices[0];
+
+            // Return prices shorted by date.
+            return prices.OrderBy(o => o.Date).ToArray();
+        }
+
         public AutoCResponse Search(string symbolOrCompany)
         {
             return Search(symbolOrCompany, CultureInfo.CurrentUICulture);

@@ -24,6 +24,12 @@ namespace FinancialsApp
 
             dialog.ShowDialog(this);
         }
-        
+
+        private void pricesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            HistorialPricesDialog dialog = new HistorialPricesDialog();
+
+            dialog.ShowDialog(this);
+        }
     }
 }

@@ -32,6 +32,7 @@
             this.toolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.historicalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dividendsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pricesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -56,7 +57,8 @@
             // historicalToolStripMenuItem
             // 
             this.historicalToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.dividendsToolStripMenuItem});
+            this.dividendsToolStripMenuItem,
+            this.pricesToolStripMenuItem});
             this.historicalToolStripMenuItem.Name = "historicalToolStripMenuItem";
             this.historicalToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.historicalToolStripMenuItem.Text = "Historical";
@@ -67,6 +69,13 @@
             this.dividendsToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
             this.dividendsToolStripMenuItem.Text = "Dividends...";
             this.dividendsToolStripMenuItem.Click += new System.EventHandler(this.dividendsToolStripMenuItem_Click);
+            // 
+            // pricesToolStripMenuItem
+            // 
+            this.pricesToolStripMenuItem.Name = "pricesToolStripMenuItem";
+            this.pricesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.pricesToolStripMenuItem.Text = "Prices...";
+            this.pricesToolStripMenuItem.Click += new System.EventHandler(this.pricesToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -90,6 +99,7 @@
         private System.Windows.Forms.ToolStripMenuItem toolsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem historicalToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem dividendsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem pricesToolStripMenuItem;
     }
 }
 

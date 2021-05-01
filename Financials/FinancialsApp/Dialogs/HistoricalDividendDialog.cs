@@ -101,7 +101,14 @@ namespace FinancialsApp.Dialogs
             this.formsPlot1.plt.PlotScatter(xs, ys);
 
             // Additional styling
-            formsPlot1.plt.Title("Dividends");
+            DateTime start = DateTime.FromOADate(xs[0]);
+            DateTime end = DateTime.FromOADate(xs[xs.Length - 1]);
+
+            if (this.toolStripComboGraphInterval.SelectedIndex == 1)
+                formsPlot1.plt.Title(String.Format("{0} Dividends ({1} - {2})", this._cachedSymbol, xs[0], xs[xs.Length-1]));
+            else
+                formsPlot1.plt.Title(String.Format("{0} Dividends ({1} - {2})", this._cachedSymbol, start.Date.ToShortDateString(), end.Date.ToShortDateString()));
+
             formsPlot1.plt.YLabel("Dividend per share");
 
             // Render

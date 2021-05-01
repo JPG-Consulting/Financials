@@ -84,6 +84,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Dialogs\HistorialPricesDialog.resx">
+      <DependentUpon>HistorialPricesDialog.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\HistoricalDividendDialog.resx">
       <DependentUpon>HistoricalDividendDialog.cs</DependentUpon>
     </EmbeddedResource>
