@@ -178,5 +178,15 @@ namespace FinancialsApp.Dialogs
         {
             GenerateGraph();
         }
+
+        private void buttonSearchSymbol_Click(object sender, EventArgs e)
+        {
+            SymbolSearchDialog dialog = new SymbolSearchDialog();
+
+            if ((dialog.ShowDialog(this) == DialogResult.OK) && (dialog.SearchResult != null))
+            {
+                this.textBoxSymbol.Text = dialog.SearchResult.Symbol;
+            }
+        }
     }
 }

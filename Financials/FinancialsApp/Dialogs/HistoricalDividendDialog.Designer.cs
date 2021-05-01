@@ -49,6 +49,7 @@
             this.listViewDividendData = new System.Windows.Forms.ListView();
             this.columnHeaderDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeaderDividend = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.buttonSearchSymbol = new System.Windows.Forms.Button();
             this.panelTop.SuspendLayout();
             this.panelContent.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -59,6 +60,7 @@
             // 
             // panelTop
             // 
+            this.panelTop.Controls.Add(this.buttonSearchSymbol);
             this.panelTop.Controls.Add(this.dateTimePickerEndDate);
             this.panelTop.Controls.Add(this.labelEndDate);
             this.panelTop.Controls.Add(this.dateTimePickerStartDate);
@@ -69,13 +71,13 @@
             this.panelTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelTop.Location = new System.Drawing.Point(0, 0);
             this.panelTop.Name = "panelTop";
-            this.panelTop.Size = new System.Drawing.Size(536, 47);
+            this.panelTop.Size = new System.Drawing.Size(585, 47);
             this.panelTop.TabIndex = 0;
             // 
             // dateTimePickerEndDate
             // 
             this.dateTimePickerEndDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePickerEndDate.Location = new System.Drawing.Point(343, 14);
+            this.dateTimePickerEndDate.Location = new System.Drawing.Point(382, 14);
             this.dateTimePickerEndDate.Name = "dateTimePickerEndDate";
             this.dateTimePickerEndDate.Size = new System.Drawing.Size(95, 20);
             this.dateTimePickerEndDate.TabIndex = 6;
@@ -83,7 +85,7 @@
             // labelEndDate
             // 
             this.labelEndDate.AutoSize = true;
-            this.labelEndDate.Location = new System.Drawing.Point(279, 17);
+            this.labelEndDate.Location = new System.Drawing.Point(318, 17);
             this.labelEndDate.Name = "labelEndDate";
             this.labelEndDate.Size = new System.Drawing.Size(58, 13);
             this.labelEndDate.TabIndex = 5;
@@ -92,7 +94,7 @@
             // dateTimePickerStartDate
             // 
             this.dateTimePickerStartDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePickerStartDate.Location = new System.Drawing.Point(178, 14);
+            this.dateTimePickerStartDate.Location = new System.Drawing.Point(217, 14);
             this.dateTimePickerStartDate.Name = "dateTimePickerStartDate";
             this.dateTimePickerStartDate.Size = new System.Drawing.Size(95, 20);
             this.dateTimePickerStartDate.TabIndex = 4;
@@ -101,7 +103,7 @@
             // labelStartDate
             // 
             this.labelStartDate.AutoSize = true;
-            this.labelStartDate.Location = new System.Drawing.Point(114, 17);
+            this.labelStartDate.Location = new System.Drawing.Point(153, 17);
             this.labelStartDate.Name = "labelStartDate";
             this.labelStartDate.Size = new System.Drawing.Size(58, 13);
             this.labelStartDate.TabIndex = 3;
@@ -110,7 +112,7 @@
             // buttonSearch
             // 
             this.buttonSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonSearch.Location = new System.Drawing.Point(449, 12);
+            this.buttonSearch.Location = new System.Drawing.Point(498, 12);
             this.buttonSearch.Name = "buttonSearch";
             this.buttonSearch.Size = new System.Drawing.Size(75, 23);
             this.buttonSearch.TabIndex = 2;
@@ -139,7 +141,7 @@
             this.panelInfo.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelInfo.Location = new System.Drawing.Point(0, 47);
             this.panelInfo.Name = "panelInfo";
-            this.panelInfo.Size = new System.Drawing.Size(536, 47);
+            this.panelInfo.Size = new System.Drawing.Size(585, 47);
             this.panelInfo.TabIndex = 1;
             // 
             // panelContent
@@ -148,7 +150,7 @@
             this.panelContent.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelContent.Location = new System.Drawing.Point(0, 94);
             this.panelContent.Name = "panelContent";
-            this.panelContent.Size = new System.Drawing.Size(536, 174);
+            this.panelContent.Size = new System.Drawing.Size(585, 174);
             this.panelContent.TabIndex = 2;
             // 
             // tabControl1
@@ -159,7 +161,7 @@
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(536, 174);
+            this.tabControl1.Size = new System.Drawing.Size(585, 174);
             this.tabControl1.TabIndex = 0;
             // 
             // tabPageGraph
@@ -169,7 +171,7 @@
             this.tabPageGraph.Location = new System.Drawing.Point(4, 22);
             this.tabPageGraph.Name = "tabPageGraph";
             this.tabPageGraph.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageGraph.Size = new System.Drawing.Size(528, 148);
+            this.tabPageGraph.Size = new System.Drawing.Size(577, 148);
             this.tabPageGraph.TabIndex = 0;
             this.tabPageGraph.Text = "Graph";
             this.tabPageGraph.UseVisualStyleBackColor = true;
@@ -179,7 +181,7 @@
             this.formsPlot1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.formsPlot1.Location = new System.Drawing.Point(3, 28);
             this.formsPlot1.Name = "formsPlot1";
-            this.formsPlot1.Size = new System.Drawing.Size(522, 117);
+            this.formsPlot1.Size = new System.Drawing.Size(571, 117);
             this.formsPlot1.TabIndex = 1;
             // 
             // toolStrip1
@@ -189,7 +191,7 @@
             this.toolStripComboGraphInterval});
             this.toolStrip1.Location = new System.Drawing.Point(3, 3);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(522, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(571, 25);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -246,11 +248,21 @@
             this.columnHeaderDividend.Text = "Dividend";
             this.columnHeaderDividend.Width = 162;
             // 
+            // buttonSearchSymbol
+            // 
+            this.buttonSearchSymbol.Location = new System.Drawing.Point(110, 12);
+            this.buttonSearchSymbol.Name = "buttonSearchSymbol";
+            this.buttonSearchSymbol.Size = new System.Drawing.Size(37, 23);
+            this.buttonSearchSymbol.TabIndex = 7;
+            this.buttonSearchSymbol.Text = "...";
+            this.buttonSearchSymbol.UseVisualStyleBackColor = true;
+            this.buttonSearchSymbol.Click += new System.EventHandler(this.buttonSearchSymbol_Click);
+            // 
             // HistoricalDividendDialog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(536, 268);
+            this.ClientSize = new System.Drawing.Size(585, 268);
             this.Controls.Add(this.panelContent);
             this.Controls.Add(this.panelInfo);
             this.Controls.Add(this.panelTop);
@@ -291,5 +303,6 @@
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripLabel toolStripLabel1;
         private System.Windows.Forms.ToolStripComboBox toolStripComboGraphInterval;
+        private System.Windows.Forms.Button buttonSearchSymbol;
     }
 }
