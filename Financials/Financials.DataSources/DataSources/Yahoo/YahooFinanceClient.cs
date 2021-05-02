@@ -175,20 +175,30 @@ namespace Financials.DataSources.DataSources.Yahoo
 
                 while (!reader.EndOfStream)
                 {
-                    string dataLine = reader.ReadLine();
+                    String[] dataFields = null;
 
-                    if (String.IsNullOrWhiteSpace(dataLine))
-                        continue;
+                    try
+                    {
+                        string dataLine = reader.ReadLine();
 
-                    String[] dataFields = dataLine.Split(new char[] { ',' });
+                        if (String.IsNullOrWhiteSpace(dataLine))
+                            continue;
 
-                    // We can set the DTO values.
-                    HistoricalDividend dividend = new HistoricalDividend() {
-                        Date = DateTime.ParseExact(dataFields[0], "yyyy-MM-dd", csvCulture),
-                        Dividend = Convert.ToDecimal(dataFields[1], csvCulture)
-                    };
+                        dataFields = dataLine.Split(new char[] { ',' });
 
-                    dividends.Add(dividend);
+                        // We can set the DTO values.
+                        HistoricalDividend dividend = new HistoricalDividend()
+                        {
+                            Date = DateTime.ParseExact(dataFields[0], "yyyy-MM-dd", csvCulture),
+                            Dividend = Decimal.Parse(dataFields[1], NumberStyles.AllowDecimalPoint | NumberStyles.AllowExponent , csvCulture)
+                        };
+
+                        dividends.Add(dividend);
+                    }
+                    catch (Exception ex)
+                    {
+                        throw;
+                    }
                 }
             }
 
