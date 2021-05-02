@@ -1,6 +1,6 @@
 ﻿namespace FinancialsApp.Dialogs
 {
-    partial class HistorialPricesDialog
+    partial class HistoricalPricesDialog
     {
         /// <summary>
         /// Required designer variable.

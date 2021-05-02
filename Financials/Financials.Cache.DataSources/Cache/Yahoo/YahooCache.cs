@@ -186,7 +186,7 @@ namespace Financials.Cache.Yahoo
             if (obj is AutoCResponse)
                 SaveAutoCResponse((AutoCResponse)obj, culture);
         }
-        
+
         public void SaveHistoricalDividends(string symbol, HistoricalDividend[] dividends)
         {
             if (String.IsNullOrWhiteSpace(symbol) || (dividends == null) || (dividends.Length < 1))
@@ -229,6 +229,73 @@ namespace Financials.Cache.Yahoo
 
                                 if (!insertedDates.Contains(dividend.Date))
                                     insertedDates.Add(dividend.Date);
+                            }
+                        }
+                    }
+
+                    transaction.Commit();
+                }
+                catch
+                {
+                    if (transaction != null)
+                        transaction.Rollback();
+                    throw;
+                }
+                finally
+                {
+                    if (connection.State != System.Data.ConnectionState.Closed)
+                        connection.Close();
+                }
+            }
+        }
+
+        public void SaveHistoricalPrices(string symbol, HistoricalPrices[] prices)
+        {
+            if (String.IsNullOrWhiteSpace(symbol) || (prices == null) || (prices.Length < 1))
+                return;
+
+            // Create tha path to the cache database.
+            string dbPath = Path.Combine(this._cacheDirectory, String.Format("{0}_Historical.sqlite3", symbol));
+
+            // Create the database if it doesn't exit.
+            if (!File.Exists(dbPath))
+                CreateDatabase("SymbolCache", dbPath);
+
+            SQLiteTransaction transaction = null;
+
+            using (SQLiteConnection connection = new SQLiteConnection(String.Format("Data Source={0};Version=3;", dbPath)))
+            {
+                connection.Open();
+
+                try
+                {
+                    List<DateTime> insertedDates = new List<DateTime>();
+
+                    transaction = connection.BeginTransaction();
+
+                    foreach (HistoricalPrices price in prices)
+                    {
+                        using (SQLiteCommand command = connection.CreateCommand())
+                        {
+                            command.CommandText = "SELECT COUNT(date) FROM [Prices] WHERE date=@date";
+                            command.Parameters.AddWithValue("@date", price.Date);
+
+                            Int64 rowCount = Convert.ToInt64(command.ExecuteScalar());
+
+                            // Allow duplicates as dividends may be split in 2 payments the same day.
+                            if ((rowCount == 0) || (insertedDates.Contains(price.Date)))
+                            {
+                                command.CommandText = "INSERT INTO [Prices] (date, open, high, low, close, adjustedClose, volume) VALUES (@date, @open, @high, @low, @close, @adjustedClose, @volume)";
+                                command.Parameters.AddWithValue("@open", price.Open);
+                                command.Parameters.AddWithValue("@high", price.High);
+                                command.Parameters.AddWithValue("@low", price.Low);
+                                command.Parameters.AddWithValue("@close", price.Close);
+                                command.Parameters.AddWithValue("@adjustedClose", price.AdjustedClose);
+                                command.Parameters.AddWithValue("@volume", price.Volume);
+                                command.ExecuteNonQuery();
+
+                                if (!insertedDates.Contains(price.Date))
+                                    insertedDates.Add(price.Date);
                             }
                         }
                     }

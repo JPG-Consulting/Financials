@@ -1,17 +1,18 @@
-﻿using Financials.DataSources.DataSources.Yahoo;
+﻿using Financials.Cache.Yahoo;
+using Financials.DataSources.DataSources.Yahoo;
 using System;
 using System.Windows.Forms;
 
 namespace FinancialsApp.Dialogs
 {
-    public partial class HistorialPricesDialog : Form
+    public partial class HistoricalPricesDialog : Form
     {
         private string _cachedSymbol = null;
         private DateTime _cachedStartDate = DateTime.MinValue;
         private DateTime _cachedEndDate = DateTime.MaxValue;
         private HistoricalPrices[] _cachedPrices = null;
 
-        public HistorialPricesDialog()
+        public HistoricalPricesDialog()
         {
             InitializeComponent();
         }
@@ -122,8 +123,8 @@ namespace FinancialsApp.Dialogs
 
                     if ((prices != null) && (prices.Length > 0))
                     {
-                        //YahooCache cache = new YahooCache();
-                        //cache.SaveHistoricalPrices(this.textBoxSymbol.Text, prices);
+                        YahooCache cache = new YahooCache();
+                        cache.SaveHistoricalPrices(this.textBoxSymbol.Text, prices);
                     }
 
                     this._cachedSymbol = this.textBoxSymbol.Text.Trim();

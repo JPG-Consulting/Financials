@@ -27,7 +27,7 @@ namespace FinancialsApp
 
         private void pricesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            HistorialPricesDialog dialog = new HistorialPricesDialog();
+            HistoricalPricesDialog dialog = new HistoricalPricesDialog();
 
             dialog.ShowDialog(this);
         }

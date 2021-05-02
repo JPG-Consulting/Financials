@@ -40,6 +40,6 @@ namespace Financials.DataSources.DataSources.Yahoo
         /// <summary>
         /// Gets or set the traded volume.
         /// </summary>
-        public decimal Volume { get; set; }
+        public double Volume { get; set; }
     }
 }
