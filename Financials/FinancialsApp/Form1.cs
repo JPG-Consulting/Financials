@@ -31,5 +31,12 @@ namespace FinancialsApp
 
             dialog.ShowDialog(this);
         }
+
+        private void symbolCacheToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SymbolCacheViewerDialog dialog = new SymbolCacheViewerDialog();
+
+            dialog.ShowDialog(this);
+        }
     }
 }

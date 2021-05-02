@@ -33,6 +33,8 @@
             this.historicalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dividendsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pricesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.viewerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.symbolCacheToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -49,7 +51,8 @@
             // toolsToolStripMenuItem
             // 
             this.toolsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.historicalToolStripMenuItem});
+            this.historicalToolStripMenuItem,
+            this.viewerToolStripMenuItem});
             this.toolsToolStripMenuItem.Name = "toolsToolStripMenuItem";
             this.toolsToolStripMenuItem.Size = new System.Drawing.Size(46, 20);
             this.toolsToolStripMenuItem.Text = "Tools";
@@ -77,6 +80,21 @@
             this.pricesToolStripMenuItem.Text = "Prices...";
             this.pricesToolStripMenuItem.Click += new System.EventHandler(this.pricesToolStripMenuItem_Click);
             // 
+            // viewerToolStripMenuItem
+            // 
+            this.viewerToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.symbolCacheToolStripMenuItem});
+            this.viewerToolStripMenuItem.Name = "viewerToolStripMenuItem";
+            this.viewerToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.viewerToolStripMenuItem.Text = "Viewer";
+            // 
+            // symbolCacheToolStripMenuItem
+            // 
+            this.symbolCacheToolStripMenuItem.Name = "symbolCacheToolStripMenuItem";
+            this.symbolCacheToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.symbolCacheToolStripMenuItem.Text = "Symbol cache...";
+            this.symbolCacheToolStripMenuItem.Click += new System.EventHandler(this.symbolCacheToolStripMenuItem_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -100,6 +118,8 @@
         private System.Windows.Forms.ToolStripMenuItem historicalToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem dividendsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem pricesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem viewerToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem symbolCacheToolStripMenuItem;
     }
 }
 
