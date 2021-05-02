@@ -186,6 +186,9 @@ namespace Financials.DataSources.DataSources.Yahoo
 
                         dataFields = dataLine.Split(new char[] { ',' });
 
+                        if (dataFields[1].Equals("null"))
+                            continue;
+
                         // We can set the DTO values.
                         HistoricalDividend dividend = new HistoricalDividend()
                         {
@@ -247,18 +250,28 @@ namespace Financials.DataSources.DataSources.Yahoo
                     String[] dataFields = dataLine.Split(new char[] { ',' });
 
                     // We can set the DTO values.
-                    HistoricalPrices price = new HistoricalPrices()
+                    try
                     {
-                        Date = DateTime.ParseExact(dataFields[0], "yyyy-MM-dd", csvCulture),
-                        Open = Convert.ToDecimal(dataFields[1], csvCulture),
-                        High = Convert.ToDecimal(dataFields[2], csvCulture),
-                        Low = Convert.ToDecimal(dataFields[3], csvCulture),
-                        Close = Convert.ToDecimal(dataFields[4], csvCulture),
-                        AdjustedClose = Convert.ToDecimal(dataFields[5], csvCulture),
-                        Volume = Convert.ToUInt64(dataFields[6], csvCulture)
-                    };
+                        if (dataFields[1].Equals("null") && dataFields[2].Equals("null") && dataFields[3].Equals("null") && dataFields[4].Equals("null") && dataFields[5].Equals("null") && dataFields[6].Equals("null"))
+                            continue;
 
-                    prices.Add(price);
+                        HistoricalPrices price = new HistoricalPrices()
+                        {
+                            Date = DateTime.ParseExact(dataFields[0], "yyyy-MM-dd", csvCulture),
+                            Open = Decimal.Parse(dataFields[1], NumberStyles.AllowDecimalPoint | NumberStyles.AllowExponent, csvCulture),
+                            High = Decimal.Parse(dataFields[2], NumberStyles.AllowDecimalPoint | NumberStyles.AllowExponent, csvCulture),
+                            Low = Decimal.Parse(dataFields[3], NumberStyles.AllowDecimalPoint | NumberStyles.AllowExponent, csvCulture),
+                            Close = Decimal.Parse(dataFields[4], NumberStyles.AllowDecimalPoint | NumberStyles.AllowExponent, csvCulture),
+                            AdjustedClose = Decimal.Parse(dataFields[5], NumberStyles.AllowDecimalPoint | NumberStyles.AllowExponent, csvCulture),
+                            Volume = Convert.ToUInt64(dataFields[6], csvCulture)
+                        };
+
+                        prices.Add(price);
+                    }
+                    catch (Exception ex)
+                    {
+                        throw;
+                    }
                 }
             }
 
