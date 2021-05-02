@@ -23,6 +23,7 @@ namespace FinancialsApp.Dialogs
             {
                 string cachePath = Path.GetFullPath("cache");
                 string[] files = Directory.GetFiles(cachePath, "*_Historical.sqlite3");
+                Array.Sort(files);
 
                 foreach (string filename in files)
                 {
